@@ -26,7 +26,7 @@
 String version = "1.0";      // Programme version, see change log at end
 //################ VARIABLES ###########################################
 
-const char* ServerName = "Controller"; // Connect to the server with http://controller.local/ e.g. if name = "myserver" use http://myserver.local/
+const char* ServerName = "RelayCTRL"; // Connect to the server with http://relayctrl.local/ e.g. if name = "myserver" use http://myserver.local/
 
 #define Channels        4              // n-Channels
 #define NumOfEvents     4              // Number of events per-day, 4 is a practical limit
@@ -58,14 +58,14 @@ String       Time_str, DoW_str;        // For Date and Time
 settings     Timer[Channels][7];       // Timer settings, n-Channels each 7-days of the week
 
 //################ VARIABLES ################
-const char* ssid       = "yourSSID";               // WiFi SSID     replace with details for your local network
-const char* password   = "yourPASSWORD";           // WiFi Password replace with details for your local network
-const char* Timezone   = "GMT0BST,M3.5.0/01,M10.5.0/02";
+const char* ssid       = "BananasEXT";               // WiFi SSID     replace with details for your local network
+const char* password   = "";           // WiFi Password replace with details for your local network
+//const char* Timezone   = "GMT0BST,M3.5.0/01,M10.5.0/02";
 // Example time zones
 //const char* Timezone = "MET-1METDST,M3.5.0/01,M10.5.0/02"; // Most of Europe
 //const char* Timezone = "CET-1CEST,M3.5.0,M10.5.0/3";       // Central Europe
 //const char* Timezone = "EST-2METDST,M3.5.0/01,M10.5.0/02"; // Most of Europe
-//const char* Timezone = "EST5EDT,M3.2.0,M11.1.0";           // EST USA
+const char* Timezone = "EST5EDT,M3.2.0,M11.1.0";           // EST USA
 //const char* Timezone = "CST6CDT,M3.2.0,M11.1.0";           // CST USA
 //const char* Timezone = "MST7MDT,M4.1.0,M10.5.0";           // MST USA
 //const char* Timezone = "NZST-12NZDT,M9.5.0,M4.1.0/3";      // Auckland
@@ -73,7 +73,7 @@ const char* Timezone   = "GMT0BST,M3.5.0/01,M10.5.0/02";
 //const char* Timezone = "ACST-9:30ACDT,M10.1.0,M4.1.0/3":   // Australia
 
 // System values
-String sitetitle            = "4-Channel Relay Controller";
+String sitetitle            = "ESP32 Relay CTRL";
 String Year                 = "2021";     // For the footer line
 
 bool   ManualOverride       = false;      // Manual override
@@ -93,7 +93,7 @@ bool   Channel2_Override    = false;
 bool   Channel3_Override    = false;
 bool   Channel4_Override    = false;
 
-AsyncWebServer server(80); // Server on IP address port 80 (web-browser default, change to your requirements, e.g. 8080
+AsyncWebServer server(9001); // Server on IP address port 80 (web-browser default, change to your requirements, e.g. 8080
 
 // To access server from outside of a WiFi (LAN) network e.g. on port 8080 add a rule on your Router that forwards a connection request
 // to http://your_WAN_address:8080/ to http://your_LAN_address:8080 and then you can view your ESP server from anywhere.
