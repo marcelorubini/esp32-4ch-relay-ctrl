@@ -45,7 +45,7 @@ const char* ServerName = "RelayCTRL"; // Connect to the server with http://relay
 #define Channel4_Pin    14             // Define the Relay Control pin
 
 #define LEDPIN          5              // Define the LED Control pin
-#define ChannelReverse  false          // Set to true for Relay that requires a signal HIGH for ON, usually relays need a LOW to actuate
+#define ChannelReverse  true          // Set to true for Relay that requires a signal HIGH for ON, usually relays need a LOW to actuate
 
 struct settings {
   String DoW;                          // Day of Week for the programmed event
