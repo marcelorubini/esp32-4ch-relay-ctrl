@@ -142,7 +142,7 @@ void setup() {
   });
   // Set handler for '/setup'
   server.on("/setup", HTTP_GET, [](AsyncWebServerRequest * request) {
-    Setup();
+    ChannelSetup();
     request->send(200, "text/html", webpage);
   });
   // Set handler for '/help'
@@ -337,7 +337,7 @@ void TimerSet(int channel) {
   append_HTML_footer();
 }
 //#########################################################################################
-void Setup() {
+void ChannelSetup() {
   append_HTML_header(noRefresh);
   webpage += "<h2>Channel Setup</h2><br>";
   webpage += "<h3>Enter required values</h3>";
