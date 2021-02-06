@@ -101,6 +101,8 @@ AsyncWebServer server(9001); // Server on IP address port 80 (web-browser defaul
 
 //#########################################################################################
 void setup() {
+  Serial.begin(115200);                                           // Initialise serial communications
+  Serial.println("Initializing setup()");
   SetupSystem();                          // General system setup
   StartWiFi();                            // Start WiFi services
   SetupTime();                            // Start NTP clock services
@@ -541,7 +543,6 @@ void StartWiFi() {
 }
 //#########################################################################################
 void SetupSystem() {
-  Serial.begin(115200);                                           // Initialise serial communications
   while (!Serial);
   Serial.println(__FILE__);
   Serial.println("Starting...");
